@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Google Tasks Multirow",
+  "version": "1.0",
+  "description": "Wraps Google Task lists into multiple rows and preserves Completed section behavior.",
+  "content_scripts": [
+    {
+      "matches": ["https://tasks.google.com/*"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": []
+}

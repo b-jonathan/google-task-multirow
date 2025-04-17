@@ -1,0 +1,19 @@
+/* Make the task list container wrap rows */
+div:has(> div[data-task-list-id]) {
+  flex-wrap: wrap !important;
+  gap: 24px !important;
+  justify-content: flex-start !important;
+  padding: 20px !important;
+  overflow-x: hidden !important;
+}
+
+/* Each task list card */
+div[data-task-list-id] {
+  flex: 0 1 30% !important;
+  max-width: 100% !important;
+}
+
+/* Don’t force width on completed section */
+div[data-task-list-id] > div:not(:has([aria-label="Completed"])) {
+  width: 100% !important;
+}
