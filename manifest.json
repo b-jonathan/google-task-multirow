@@ -9,6 +9,5 @@
       "css": ["styles.css"],
       "run_at": "document_idle"
     }
-  ],
-  "permissions": []
+  ]
 }
