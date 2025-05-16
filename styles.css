@@ -1,19 +1,38 @@
-/* Make the task list container wrap rows */
+/* ✅ 1. Wrap and constrain the task list container WITHOUT flex */
 div:has(> div[data-task-list-id]) {
-  flex-wrap: wrap !important;
-  gap: 24px !important;
-  justify-content: flex-start !important;
-  padding: 20px !important;
-  overflow-x: hidden !important;
-}
-
-/* Each task list card */
-div[data-task-list-id] {
-  flex: 0 1 30% !important;
-  max-width: 100% !important;
-}
-
-/* Don’t force width on completed section */
-div[data-task-list-id] > div:not(:has([aria-label="Completed"])) {
-  width: 100% !important;
-}
+    flex-wrap: wrap !important;
+    gap: 24px !important;
+    justify-content: flex-start !important;
+    padding: 20px !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important; /* <-- add this */
+    max-height: calc(100vh - 120px) !important; /* <-- add this, adjust the 120px if needed */
+  }
+  
+  
+  /* ✅ 2. Each task list card */
+  div[data-task-list-id] {
+    flex: 0 1 30% !important;
+    max-width: 100% !important;  
+    min-width: 300px !important;
+    box-sizing: border-box !important;
+    overflow-y: scroll;
+  }
+  
+  .FNTXYe {
+    overflow: scroll !important;
+    contain: paint !important;
+  }
+  
+  /* Optional: allow cards to expand downward if needed */
+  div[data-task-list-id] > div {
+  display: flex;
+  flex-direction: column;
+  height: 100% !important;
+  }
+  /* ✅ 3. Don’t force width on completed section */
+  div[data-task-list-id] > div:not(:has([aria-label="Completed"])) {
+    width: 100% !important;
+  }
+  
+  
